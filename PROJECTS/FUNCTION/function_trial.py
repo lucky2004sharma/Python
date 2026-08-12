@@ -1,12 +1,12 @@
-def even(number):
-    
-    if number % 2 == 0:
-        return f"{number} is an even number : "
-    else:
-        return f"{number} is an odd number : "
-    
+print("loop on the code")
 
-number = int(input("Enter a number: "))
-value = even(number)
+for number in range(1, 11):
+    print(number)
+    
+    
+cars = ["BMW", "AUDI", "TOYOTA", "HONDA"]
 
-print(value)
+for item in cars:
+    print(item)
+for num in range(5, -1, -2):
+    print(num)
