@@ -1,6 +1,7 @@
+def sum (a, b, c):
+    
+    sum = a + b + c
+    return sum
 
-def greet (name):
-    return f"Hello, {name}! Welcome to the company."
-
-name1 = greet("John Doe")
-print(name1)
+value = sum(10, 20, 30)
+print(value)
