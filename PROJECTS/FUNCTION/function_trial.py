@@ -1,10 +1,12 @@
-def sum (a, b, c):
-    sum = a + b + c
-    return sum  
+def even(number):
+    
+    if number % 2 == 0:
+        return f"{number} is an even number : "
+    else:
+        return f"{number} is an odd number : "
+    
 
-a = int(input("Enter first number: "))
-b = int(input("Enter second number: "))
-c = int(input("Enter third number: "))
+number = int(input("Enter a number: "))
+value = even(number)
 
-value = sum(a, b, c)
-print("The sum of these three number is : ", value)
+print(value)
