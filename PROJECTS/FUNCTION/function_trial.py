@@ -100,67 +100,67 @@ print("Total : ", total_discount)
 
 
 
-# print('..........THE GYM.........')
+print('..........THE GYM.........')
 
-# def user_data():
-#     # print("Your name is : ", name)
-#     # print("Your age is : ", age)
+def user_data():
+    # print("Your name is : ", name)
+    # print("Your age is : ", age)
     
-#     return name, age
+    return name, age
     
-# name = input("Please Enter your name : ")
-# age = int(input("Please Enter your age : "))
+name = input("Please Enter your name : ")
+age = int(input("Please Enter your age : "))
 
-# user_data()
+user_data()
 
-# def membership_plan():
-#     print("There are three membership availabe in GYM : ")
-#     print("1. Basic = ₹ 1000 : ")
-#     print("2. Premium = ₹ 2000 : ")
-#     print("3. VIP = ₹ 3000 : ")
+def membership_plan():
+    print("There are three membership availabe in GYM : ")
+    print("1. Basic = ₹ 1000 : ")
+    print("2. Premium = ₹ 2000 : ")
+    print("3. VIP = ₹ 3000 : ")
     
     
     
-# def membership_data():
+def membership_data():
     
-#     choose = int(input("Please choose your Gym membership : "))
+    choose = int(input("Please choose your Gym membership : "))
     
-#     basic = 1000
-#     premium = 2000
-#     vip = 3000
+    basic = 1000
+    premium = 2000
+    vip = 3000
 
 
-#     if choose == 1:
-#         membersip_fee = basic
-#         membership_name = "Basic Membership"
-#         memership_discount = "You Got 10% "
-#         # print("Basic Gym membership : ")
-#         # print("You've get 10% discount ")
-#         after_discount = basic - ((basic * 10)/100)
-#         membership_discount = ((basic * 10)/100)
+    if choose == 1:
+        membersip_fee = basic
+        membership_name = "Basic Membership"
+        memership_discount = "You Got 10% "
+        # print("Basic Gym membership : ")
+        # print("You've get 10% discount ")
+        after_discount = basic - ((basic * 10)/100)
+        membership_discount = ((basic * 10)/100)
         
-#     elif choose == 2:
-#         membersip_fee = premium
-#         membership_name = "Premium Membership"
-#         memership_discount = "You Got 15% "
-#         # print("Premium Gym membership : ")
-#         # print("You've get 15% discount ")
-#         after_discount = premium - ((premium * 15)/100)
-#         membership_discount = ((premium * 15)/100)
+    elif choose == 2:
+        membersip_fee = premium
+        membership_name = "Premium Membership"
+        memership_discount = "You Got 15% "
+        # print("Premium Gym membership : ")
+        # print("You've get 15% discount ")
+        after_discount = premium - ((premium * 15)/100)
+        membership_discount = ((premium * 15)/100)
         
         
         
-#     elif choose == 3:
-#         membersip_fee = vip
-#         membership_name = "VIP Membership"
-#         memership_discount = "You Got 20% "
-#         # print("VIP Gym membership : ")
-#         # print("You've get 20% discount ")
-#         after_discount = vip - ((vip * 20)/100)
-#         membership_discount = ((vip * 20)/100)
+    elif choose == 3:
+        membersip_fee = vip
+        membership_name = "VIP Membership"
+        memership_discount = "You Got 20% "
+        # print("VIP Gym membership : ")
+        # print("You've get 20% discount ")
+        after_discount = vip - ((vip * 20)/100)
+        membership_discount = ((vip * 20)/100)
         
-#     else:
-#         print("Invalid choice ....")
+    else:
+        print("Invalid choice ....")
     
     
     
