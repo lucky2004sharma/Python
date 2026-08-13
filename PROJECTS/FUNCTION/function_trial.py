@@ -1,153 +1,166 @@
-# ==========================
-#        THE GYM
-# ==========================
-
-print("========== THE GYM ==========")
+#  This project is for GYM MEMBERSHIP while using the function
 
 
-# -----------------------------
-# User Details Function
-# -----------------------------
-def user_details():
-    name = input("Please Enter your Name : ")
-    age = int(input("Please Enter your Age : "))
-    return name, age
+print('..........THE GYM.........')
 
 
-# -----------------------------
-# Membership Function
-# -----------------------------
-def membership():
-
-    print("\nAvailable Memberships")
-    print("1. Basic    = ₹1000")
-    print("2. Premium  = ₹2000")
-    print("3. VIP      = ₹3000")
-
-    choose = int(input("\nChoose Membership : "))
-
-    if choose == 1:
-
-        membership_name = "Basic Membership"
-        membership_fee = 1000
-        discount_percent = 10
-
-    elif choose == 2:
-
-        membership_name = "Premium Membership"
-        membership_fee = 2000
-        discount_percent = 15
-
-    elif choose == 3:
-
-        membership_name = "VIP Membership"
-        membership_fee = 3000
-        discount_percent = 20
-
-    else:
-        print("Invalid Choice")
-        return None
-
-    membership_discount = membership_fee * discount_percent / 100
-
-    after_discount = membership_fee - membership_discount
-
-    return (membership_name,
-            membership_fee,
-            discount_percent,
-            membership_discount,
-            after_discount)
+name = input("Please Enter your name : ")
+age = int(input("Please Enter your age : "))
 
 
-# -----------------------------
-# Age Discount Function
-# -----------------------------
-def age_discount(age, after_discount):
+# return name, age
 
-    extra_discount = 0
-    message = "No Extra Discount"
+    
+#   def membership():
+print("There are three membership availabe in GYM : ")
+print("1. Basic = ₹ 1000 : ")
+print("2. Premium = ₹ 2000 : ")
+print("3. VIP = ₹ 3000 : ")
 
-    if 18 <= age <= 25:
+basic = 1000
+premium = 2000
+vip = 3000
 
-        extra_discount = after_discount * 5 / 100
-        message = "Student Discount (5%)"
+choose = int(input("Please choose your Gym membership : "))
 
-    elif age > 60:
+if choose == 1:
+    membersip_fee = basic
+    membership_name = "Basic Membership"
+    memership_discount = "You Got 10% "
+    # print("Basic Gym membership : ")
+    # print("You've get 10% discount ")
+    after_discount = basic - ((basic * 10)/100)
+    membership_discount = ((basic * 10)/100)
+    
+elif choose == 2:
+    membersip_fee = premium
+    membership_name = "Premium Membership"
+    memership_discount = "You Got 15% "
+    # print("Premium Gym membership : ")
+    # print("You've get 15% discount ")
+    after_discount = premium - ((premium * 15)/100)
+    membership_discount = ((premium * 15)/100)
+     
+    
+    
+elif choose == 3:
+    membersip_fee = vip
+    membership_name = "VIP Membership"
+    memership_discount = "You Got 20% "
+    # print("VIP Gym membership : ")
+    # print("You've get 20% discount ")
+    after_discount = vip - ((vip * 20)/100)
+    membership_discount = ((vip * 20)/100)
+    
+else:
+    print("Invalid choice ....")
+    
+# print(choose)
 
-        extra_discount = after_discount * 7 / 100
-        message = "Senior Citizen Discount (7%)"
+    
 
-    final_amount = after_discount - extra_discount
+if age >= 18 and age <= 25:
+    # special_discount =(f"Your age is {age} so you'll get additional 5% student discount")
+    # print("You'll get extra 5% discount")
+    total_discount = after_discount - ((after_discount*5)/100)
+    student_discount = ((after_discount*5)/100)
+    
+    
+    
+elif age > 60:
+    # special_discount =(f"Your age is {age} so you'll get additional 7% senior discount")
+    # print("You'll get extra 7% discount")
+    total_discount = after_discount - ((after_discount*7)/100)
+    senior_discount = ((after_discount*7)/100)
+    
+else:
+    total_discount = after_discount
+    
+    
+# FINAL RECEIPT
+print("..........FINAL RECEIPT..........")
+print("Name : " , name)
+print("Age : ", age)
+print("Membership : ", membership_name)
+print("Membership Discount : " , memership_discount)
+print("Original Fees : ", membersip_fee)
+# print("special discount : " , special_discount)
 
-    return final_amount, extra_discount, message
+print("Membership Discount : ",membership_discount )
+if age >= 18 and age <= 25:
+    print(f"Your age is {age} so you'll get additional 7% student discount")
+    print("Student Discount : ", student_discount)
+    
+elif age > 60:
+    print(f"Your age is {age} so you'll get additional 7% senior discount")
+    print("Senior Discount : ", senior_discount)
+    
 
-
-# -----------------------------
-# Receipt Function
-# -----------------------------
-def receipt(name,
-            age,
-            membership_name,
-            membership_fee,
-            discount_percent,
-            membership_discount,
-            message,
-            extra_discount,
-            final_amount):
-
-    print("\n========== FINAL RECEIPT ==========")
-
-    print("Name                 :", name)
-    print("Age                  :", age)
-    print("Membership           :", membership_name)
-    print("Original Fees        : ₹", membership_fee)
-
-    print("Membership Discount  :", str(discount_percent) + "%")
-    print("Discount Amount      : ₹", membership_discount)
-
-    if extra_discount > 0:
-        print(message)
-        print("Extra Discount       : ₹", extra_discount)
-
-    print("--------------------------------------")
-    print("Final Amount         : ₹", final_amount)
-    print("======================================")
-
-
-# -----------------------------
-# Main Function
-# -----------------------------
-def main():
-
-    # User Details
-    name, age = user_details()
-
-    # Membership Details
-    data = membership()
-
-    if data == None:
-        return
-
-    (membership_name,
-     membership_fee,
-     discount_percent,
-     membership_discount,
-     after_discount) = data
-
-    # Age Discount
-    final_amount, extra_discount, message = age_discount(age, after_discount)
-
-    # Final Receipt
-    receipt(name,
-            age,
-            membership_name,
-            membership_fee,
-            discount_percent,
-            membership_discount,
-            message,
-            extra_discount,
-            final_amount)
+print("Total : ", total_discount)
 
 
-# Program Starts Here
-main()
+
+# print('..........THE GYM.........')
+
+# def user_data():
+#     # print("Your name is : ", name)
+#     # print("Your age is : ", age)
+    
+#     return name, age
+    
+# name = input("Please Enter your name : ")
+# age = int(input("Please Enter your age : "))
+
+# user_data()
+
+# def membership_plan():
+#     print("There are three membership availabe in GYM : ")
+#     print("1. Basic = ₹ 1000 : ")
+#     print("2. Premium = ₹ 2000 : ")
+#     print("3. VIP = ₹ 3000 : ")
+    
+    
+    
+# def membership_data():
+    
+#     choose = int(input("Please choose your Gym membership : "))
+    
+#     basic = 1000
+#     premium = 2000
+#     vip = 3000
+
+
+#     if choose == 1:
+#         membersip_fee = basic
+#         membership_name = "Basic Membership"
+#         memership_discount = "You Got 10% "
+#         # print("Basic Gym membership : ")
+#         # print("You've get 10% discount ")
+#         after_discount = basic - ((basic * 10)/100)
+#         membership_discount = ((basic * 10)/100)
+        
+#     elif choose == 2:
+#         membersip_fee = premium
+#         membership_name = "Premium Membership"
+#         memership_discount = "You Got 15% "
+#         # print("Premium Gym membership : ")
+#         # print("You've get 15% discount ")
+#         after_discount = premium - ((premium * 15)/100)
+#         membership_discount = ((premium * 15)/100)
+        
+        
+        
+#     elif choose == 3:
+#         membersip_fee = vip
+#         membership_name = "VIP Membership"
+#         memership_discount = "You Got 20% "
+#         # print("VIP Gym membership : ")
+#         # print("You've get 20% discount ")
+#         after_discount = vip - ((vip * 20)/100)
+#         membership_discount = ((vip * 20)/100)
+        
+#     else:
+#         print("Invalid choice ....")
+    
+    
+    
