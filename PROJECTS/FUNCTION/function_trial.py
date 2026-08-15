@@ -11,12 +11,12 @@ def farenheit_to_celcius(farenheit):
     return celcius
 
 
-farenheit = float(input("Enter the farenheit value: "))
-celcius = float(input("Enter the celcius value: "))
+
 
 print("What you want to convert ?")
 print(" 1. Celcius to farenheit : ")
 print(" 2. Farenheit to celcius : ")
+
 
 choice = int(input("Please select the value 1 or 2: "))
 
@@ -24,6 +24,8 @@ if choice == 1:
     farenheit = celcius_to_farenheit(celcius)
 elif choice == 2:
     celcius = farenheit_to_celcius(farenheit)
+
+
 
 faren = celcius_to_farenheit(celcius)
 celci = farenheit_to_celcius(farenheit)
