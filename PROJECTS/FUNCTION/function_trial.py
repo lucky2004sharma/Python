@@ -1,16 +1,28 @@
-import platform
-import os
+import random
+import string
 
-def display_sys_info():
-    print("=== System Information ===")
-    print(f"System: {platform.system()}")
-    print(f"Node Name: {platform.node()}")
-    print(f"Release: {platform.release()}")
-    print(f"Version: {platform.version()}")
-    print(f"Machine: {platform.machine()}")
-    print(f"Processor: {platform.processor()}")
-    print(f"Current Working Directory: {os.getcwd()}")
-    print("==========================")
+def generate_secure_password(length):
+    if length < 4:
+        return "Error: Password must be at least 4 characters long."
+        
+    all_chars = string.ascii_letters + string.digits + string.punctuation
+    # Ensure at least one of each type is included
+    password = [
+        random.choice(string.ascii_lowercase),
+        random.choice(string.ascii_uppercase),
+        random.choice(string.digits),
+        random.choice(string.punctuation)
+    ]
+    
+    # Fill the rest randomly
+    password += [random.choice(all_chars) for _ in range(length - 4)]
+    random.shuffle(password)
+    return "".join(password)
 
 if __name__ == "__main__":
-    display_sys_info()
+    print("--- Secure Password Generator ---")
+    try:
+        user_length = int(input("Enter desired password length: "))
+        print(f"Your new password is: {generate_secure_password(user_length)}")
+    except ValueError:
+        print("Please enter a valid whole number.")
