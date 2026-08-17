@@ -1,30 +1,32 @@
-import random
+def add(x, y): return x + y
+def subtract(x, y): return x - y
+def multiply(x, y): return x * y
+def divide(x, y): return x / y if y != 0 else "Error: Division by zero"
 
-def play_game():
-    number_to_guess = random.randint(1, 100)
-    attempts = 0
-    print("Welcome to the Number Guessing Game!")
-    print("I'm thinking of a number between 1 and 100.")
+def calculator():
+    print("--- Simple Python Calculator ---")
+    print("Select operation: 1.Add  2.Subtract  3.Multiply  4.Divide")
 
     while True:
-        user_guess = input("Enter your guess (or 'q' to quit): ")
-        if user_guess.lower() == 'q':
-            print(f"The number was {number_to_guess}. Goodbye!")
+        choice = input("Enter choice (1/2/3/4) or 'q' to quit: ")
+        if choice.lower() == 'q':
+            print("Exiting calculator...")
             break
-            
-        try:
-            guess = int(user_guess)
-            attempts += 1
-            
-            if guess < number_to_guess:
-                print("Too low! Try again.")
-            elif guess > number_to_guess:
-                print("Too high! Try again.")
-            else:
-                print(f"Congratulations! You guessed it in {attempts} attempts.")
-                break
-        except ValueError:
-            print("Please enter a valid number.")
+
+        if choice in ('1', '2', '3', '4'):
+            try:
+                num1 = float(input("Enter first number: "))
+                num2 = float(input("Enter second number: "))
+            except ValueError:
+                print("Invalid input. Please enter numbers only.")
+                continue
+
+            if choice == '1': print(f"Result: {add(num1, num2)}")
+            elif choice == '2': print(f"Result: {subtract(num1, num2)}")
+            elif choice == '3': print(f"Result: {multiply(num1, num2)}")
+            elif choice == '4': print(f"Result: {divide(num1, num2)}")
+        else:
+            print("Invalid Input")
 
 if __name__ == "__main__":
-    play_game()
+    calculator()
