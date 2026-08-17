@@ -1,121 +1,30 @@
-print("this is my 5th programm")
+import random
 
-print("----------WELCOME TO QUIZ GAME----------")
+def play_game():
+    number_to_guess = random.randint(1, 100)
+    attempts = 0
+    print("Welcome to the Number Guessing Game!")
+    print("I'm thinking of a number between 1 and 100.")
 
-name = input("Please enter your name : ")
+    while True:
+        user_guess = input("Enter your guess (or 'q' to quit): ")
+        if user_guess.lower() == 'q':
+            print(f"The number was {number_to_guess}. Goodbye!")
+            break
+            
+        try:
+            guess = int(user_guess)
+            attempts += 1
+            
+            if guess < number_to_guess:
+                print("Too low! Try again.")
+            elif guess > number_to_guess:
+                print("Too high! Try again.")
+            else:
+                print(f"Congratulations! You guessed it in {attempts} attempts.")
+                break
+        except ValueError:
+            print("Please enter a valid number.")
 
-print(f"Welcome to {name} Game")
-
-while True:
-    
-    score = 0
-    
-    
-    print("Q1. What is the capital of INDIA")
-    print("a. Delhi")
-    print("b. Mumbai")
-    print("c. Kolkata")
-    print("d. Gujarat")
-    
-    answer = input("plz. Choose answer : ")
-    if answer in ["a", "b", "c","d"]:
-        if answer == "a":
-            score = score + 1 
-            print("Correct answer : ")
-            
-        else:
-            print("Wrong answer : ")   
-        
-        
-    else:
-        print("choose only btwn a,b,c,d :")
-        
-    
-    print("Q2. In what year did World War II end?  ")
-    print("a. 1944")
-    print("b. 1947")
-    print("c. 1946")
-    print("d. 1945")
-    
-    answer = input("plz. Choose answer : ")
-    if answer in ["a", "b", "c","d"]:
-        if answer == "d":
-            score = score + 1 
-            print("Correct answer : ")
-            
-        else:
-            print("Wrong answer : ")
-               
-        
-    else:
-        print("choose only btwn a,b,c,d :")
-    
-    
-    print("Q3. Which planet is closest to the sun? ")
-    print("a. Venus")
-    print("b. Mercury")
-    print("c. Mars")
-    print("d. Jupiter")
-    
-    answer = input("plz. Choose answer : ")
-    if answer in ["a", "b", "c","d"]:
-        if answer == "b":
-            score = score + 1 
-            print("Correct answer : ")
-            
-        else:
-            print("Wrong answer : ")
-               
-        
-    else:
-        print("choose only btwn a,b,c,d :")
-        
-        
-        
-    print("Q4. Who has won the most total Academy Awards? ")
-    print("a. Walt Disney")
-    print("b. Pixar")
-    print("c. Sony")
-    print("d. Dream Works")
-    
-    answer = input("plz. Choose answer : ")
-    if answer in ["a", "b", "c","d"]:
-        if answer == "a":
-            score = score + 1 
-            print("Correct answer : ")
-            
-        else:
-            print("Wrong answer : ")
-               
-        
-    else:
-        print("choose only btwn a,b,c,d :")
-        
-        
-        
-        
-        
-    print("Q5. What is a group of crows called?  ")
-    print("a. Angel")
-    print("b. Murder")
-    print("c. Narnia")
-    print("d. Herd")
-    
-    answer = input("plz. Choose answer : ")
-    if answer in ["a", "b", "c","d"]:
-        if answer == "b":
-            score = score + 1 
-            print("Correct answer : ")
-            
-        else:
-            print("Wrong answer : ")
-            
-            
-        break
-        
-    else:
-        print("choose only btwn a,b,c,d :")
-        
-
-print("Total question is 5 and total score is ", score)
-print(f"So, Total answer is {score}/5")
+if __name__ == "__main__":
+    play_game()
