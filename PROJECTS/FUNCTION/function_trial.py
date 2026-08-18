@@ -1,47 +1,51 @@
-def add(a, b):
-    return a + b
+def calculate_average(marks):
+    return sum(marks) / len(marks)
 
 
-def subtract(a, b):
-    return a - b
+def find_grade(average):
+    if average >= 90:
+        return "A+"
+    if average >= 80:
+        return "A"
+    if average >= 70:
+        return "B"
+    if average >= 60:
+        return "C"
+    if average >= 50:
+        return "D"
+    return "F"
 
 
-def multiply(a, b):
-    return a * b
+def input_marks(number_of_subjects):
+    marks = []
 
+    for subject_number in range(1, number_of_subjects + 1):
+        mark = float(input(f"Enter marks for subject {subject_number}: "))
 
-def divide(a, b):
-    if b == 0:
-        raise ValueError("Cannot divide by zero.")
-    return a / b
+        if mark < 0 or mark > 100:
+            raise ValueError("Marks must be between 0 and 100.")
+
+        marks.append(mark)
+
+    return marks
 
 
 def main():
-    print("Simple Calculator")
-    print("1. Addition")
-    print("2. Subtraction")
-    print("3. Multiplication")
-    print("4. Division")
-
-    choice = input("Choose an operation (1-4): ")
+    print("Student Grade Calculator")
 
     try:
-        first_number = float(input("Enter the first number: "))
-        second_number = float(input("Enter the second number: "))
+        subject_count = int(input("Enter the number of subjects: "))
 
-        operations = {
-            "1": ("Result", add),
-            "2": ("Result", subtract),
-            "3": ("Result", multiply),
-            "4": ("Result", divide),
-        }
+        if subject_count <= 0:
+            raise ValueError("Number of subjects must be positive.")
 
-        if choice not in operations:
-            print("Invalid operation.")
-            return
+        marks = input_marks(subject_count)
+        average = calculate_average(marks)
+        grade = find_grade(average)
 
-        label, operation = operations[choice]
-        print(f"{label}: {operation(first_number, second_number)}")
+        print(f"\nTotal marks: {sum(marks):.2f}")
+        print(f"Average: {average:.2f}")
+        print(f"Grade: {grade}")
 
     except ValueError as error:
         print(f"Error: {error}")
