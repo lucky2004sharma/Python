@@ -1,15 +1,29 @@
-def word_frequency(text):
-    words = text.lower().split()
-    freq = {}
-    for word in words:
-        cleaned = word.strip(".,!?;:\"'")
-        freq[cleaned] = freq.get(cleaned, 0) + 1
-    return freq
+class TodoList:
+    def __init__(self):
+        self.tasks = []
+ 
+    def add_task(self, task):
+        self.tasks.append({"task": task, "done": False})
+        print(f"Added: {task}")
+ 
+    def complete_task(self, index):
+        if 0 <= index < len(self.tasks):
+            self.tasks[index]["done"] = True
+            print(f"Completed: {self.tasks[index]['task']}")
+        else:
+            print("Invalid task index")
+ 
+    def show_tasks(self):
+        for i, t in enumerate(self.tasks):
+            status = "✔" if t["done"] else "✗"
+            print(f"[{status}] {i}: {t['task']}")
  
  
 if __name__ == "__main__":
-    paragraph = "the quick brown fox jumps over the lazy dog. The dog barks at the fox."
-    result = word_frequency(paragraph)
-    for word, count in sorted(result.items(), key=lambda x: -x[1]):
-        print(f"{word}: {count}")
- 
+    todo = TodoList()
+    todo.add_task("Buy groceries")
+    todo.add_task("Finish Python project")
+    todo.add_task("Read a book")
+    todo.complete_task(1)
+    print("\nCurrent tasks:")
+    todo.show_tasks()
