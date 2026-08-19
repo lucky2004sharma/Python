@@ -1,17 +1,15 @@
-def is_prime(n):
-    if n < 2:
-        return False
-    for i in range(2, int(n ** 0.5) + 1):
-        if n % i == 0:
-            return False
-    return True
- 
- 
-def primes_up_to(limit):
-    return [n for n in range(2, limit + 1) if is_prime(n)]
+def word_frequency(text):
+    words = text.lower().split()
+    freq = {}
+    for word in words:
+        cleaned = word.strip(".,!?;:\"'")
+        freq[cleaned] = freq.get(cleaned, 0) + 1
+    return freq
  
  
 if __name__ == "__main__":
-    limit = 50
-    print(f"Primes up to {limit}: {primes_up_to(limit)}")
+    paragraph = "the quick brown fox jumps over the lazy dog. The dog barks at the fox."
+    result = word_frequency(paragraph)
+    for word, count in sorted(result.items(), key=lambda x: -x[1]):
+        print(f"{word}: {count}")
  
