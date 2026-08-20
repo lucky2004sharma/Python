@@ -1,28 +1,25 @@
-def process_sales_data(sales):
-    """
-    sales: list of dicts like {"name": "Alice", "amount": 1200}
-    Returns a summary dictionary.
-    """
-    total = sum(record["amount"] for record in sales)
-    average = total / len(sales) if sales else 0
-    top_performer = max(sales, key=lambda r: r["amount"]) if sales else None
+def text_statistics(text):
+    num_chars = len(text)
+    num_words = len(text.split())
+    num_sentences = text.count(".") + text.count("!") + text.count("?")
+    avg_word_length = (
+        sum(len(w.strip(".,!?;:")) for w in text.split()) / num_words
+        if num_words > 0 else 0
+    )
  
     return {
-        "total_sales": total,
-        "average_sale": round(average, 2),
-        "top_performer": top_performer["name"] if top_performer else None,
-        "top_amount": top_performer["amount"] if top_performer else None,
+        "characters": num_chars,
+        "words": num_words,
+        "sentences": num_sentences,
+        "avg_word_length": round(avg_word_length, 2),
     }
  
  
 if __name__ == "__main__":
-    sales_records = [
-        {"name": "Alice", "amount": 1200},
-        {"name": "Bob", "amount": 950},
-        {"name": "Charlie", "amount": 1730},
-        {"name": "Diana", "amount": 800},
-    ]
- 
-    summary = process_sales_data(sales_records)
-    for key, value in summary.items():
+    sample_text = (
+        "Python is a great programming language! It is easy to learn. "
+        "Many developers love it because of its simplicity and readability."
+    )
+    stats = text_statistics(sample_text)
+    for key, value in stats.items():
         print(f"{key}: {value}")
