@@ -1,29 +1,28 @@
-class TodoList:
-    def __init__(self):
-        self.tasks = []
+def process_sales_data(sales):
+    """
+    sales: list of dicts like {"name": "Alice", "amount": 1200}
+    Returns a summary dictionary.
+    """
+    total = sum(record["amount"] for record in sales)
+    average = total / len(sales) if sales else 0
+    top_performer = max(sales, key=lambda r: r["amount"]) if sales else None
  
-    def add_task(self, task):
-        self.tasks.append({"task": task, "done": False})
-        print(f"Added: {task}")
- 
-    def complete_task(self, index):
-        if 0 <= index < len(self.tasks):
-            self.tasks[index]["done"] = True
-            print(f"Completed: {self.tasks[index]['task']}")
-        else:
-            print("Invalid task index")
- 
-    def show_tasks(self):
-        for i, t in enumerate(self.tasks):
-            status = "✔" if t["done"] else "✗"
-            print(f"[{status}] {i}: {t['task']}")
+    return {
+        "total_sales": total,
+        "average_sale": round(average, 2),
+        "top_performer": top_performer["name"] if top_performer else None,
+        "top_amount": top_performer["amount"] if top_performer else None,
+    }
  
  
 if __name__ == "__main__":
-    todo = TodoList()
-    todo.add_task("Buy groceries")
-    todo.add_task("Finish Python project")
-    todo.add_task("Read a book")
-    todo.complete_task(1)
-    print("\nCurrent tasks:")
-    todo.show_tasks()
+    sales_records = [
+        {"name": "Alice", "amount": 1200},
+        {"name": "Bob", "amount": 950},
+        {"name": "Charlie", "amount": 1730},
+        {"name": "Diana", "amount": 800},
+    ]
+ 
+    summary = process_sales_data(sales_records)
+    for key, value in summary.items():
+        print(f"{key}: {value}")
