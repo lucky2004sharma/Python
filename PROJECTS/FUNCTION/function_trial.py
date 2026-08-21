@@ -1,25 +1,40 @@
-def text_statistics(text):
-    num_chars = len(text)
-    num_words = len(text.split())
-    num_sentences = text.count(".") + text.count("!") + text.count("?")
-    avg_word_length = (
-        sum(len(w.strip(".,!?;:")) for w in text.split()) / num_words
-        if num_words > 0 else 0
-    )
+lass BankAccount:
+    def __init__(self, owner, balance=0):
+        self.owner = owner
+        self.balance = balance
+        self.history = []
  
-    return {
-        "characters": num_chars,
-        "words": num_words,
-        "sentences": num_sentences,
-        "avg_word_length": round(avg_word_length, 2),
-    }
+    def deposit(self, amount):
+        if amount <= 0:
+            print("Deposit amount must be positive")
+            return
+        self.balance += amount
+        self.history.append(f"Deposited {amount}")
+        print(f"{self.owner} deposited {amount}. New balance: {self.balance}")
+ 
+    def withdraw(self, amount):
+        if amount > self.balance:
+            print(f"Insufficient funds for {self.owner}")
+            return
+        self.balance -= amount
+        self.history.append(f"Withdrew {amount}")
+        print(f"{self.owner} withdrew {amount}. New balance: {self.balance}")
+ 
+    def transfer(self, other_account, amount):
+        if amount > self.balance:
+            print("Transfer failed: insufficient funds")
+            return
+        self.withdraw(amount)
+        other_account.deposit(amount)
+        print(f"Transferred {amount} from {self.owner} to {other_account.owner}")
  
  
 if __name__ == "__main__":
-    sample_text = (
-        "Python is a great programming language! It is easy to learn. "
-        "Many developers love it because of its simplicity and readability."
-    )
-    stats = text_statistics(sample_text)
-    for key, value in stats.items():
-        print(f"{key}: {value}")
+    alice = BankAccount("Alice", 1000)
+    bob = BankAccount("Bob", 500)
+ 
+    alice.deposit(200)
+    bob.withdraw(100)
+    alice.transfer(bob, 300)
+ 
+    print(f"\nFinal balances -> Alice: {alice.balance}, Bob: {bob.balance}")
