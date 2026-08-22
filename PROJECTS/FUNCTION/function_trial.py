@@ -1,36 +1,38 @@
-def matrix_add(a, b):
-    return [[a[i][j] + b[i][j] for j in range(len(a[0]))] for i in range(len(a))]
+class Inventory:
+    def __init__(self, low_stock_threshold=5):
+        self.items = {}
+        self.low_stock_threshold = low_stock_threshold
  
+    def add_stock(self, item_name, quantity):
+        self.items[item_name] = self.items.get(item_name, 0) + quantity
+        print(f"Added {quantity} of '{item_name}'. Total: {self.items[item_name]}")
  
-def matrix_multiply(a, b):
-    rows_a, cols_a = len(a), len(a[0])
-    rows_b, cols_b = len(b), len(b[0])
-    if cols_a != rows_b:
-        raise ValueError("Incompatible matrix dimensions for multiplication")
+    def remove_stock(self, item_name, quantity):
+        if item_name not in self.items or self.items[item_name] < quantity:
+            print(f"Cannot remove {quantity} of '{item_name}': not enough stock")
+            return
+        self.items[item_name] -= quantity
+        print(f"Removed {quantity} of '{item_name}'. Remaining: {self.items[item_name]}")
+        self._check_low_stock(item_name)
  
-    result = [[0] * cols_b for _ in range(rows_a)]
-    for i in range(rows_a):
-        for j in range(cols_b):
-            result[i][j] = sum(a[i][k] * b[k][j] for k in range(cols_a))
-    return result
+    def _check_low_stock(self, item_name):
+        if self.items[item_name] <= self.low_stock_threshold:
+            print(f"  ⚠ Low stock alert: '{item_name}' has only {self.items[item_name]} left")
  
- 
-def matrix_transpose(m):
-    return [[m[i][j] for i in range(len(m))] for j in range(len(m[0]))]
- 
- 
-def print_matrix(m, label=""):
-    if label:
-        print(label)
-    for row in m:
-        print(row)
-    print()
+    def report(self):
+        print("\nInventory Report:")
+        for item, qty in self.items.items():
+            status = "LOW" if qty <= self.low_stock_threshold else "OK"
+            print(f"  {item}: {qty} ({status})")
  
  
 if __name__ == "__main__":
-    A = [[1, 2], [3, 4]]
-    B = [[5, 6], [7, 8]]
+    inventory = Inventory(low_stock_threshold=5)
  
-    print_matrix(matrix_add(A, B), "A + B:")
-    print_matrix(matrix_multiply(A, B), "A x B:")
-    print_matrix(matrix_transpose(A), "Transpose of A:")
+    inventory.add_stock("Widgets", 20)
+    inventory.add_stock("Gadgets", 8)
+    inventory.remove_stock("Widgets", 12)
+    inventory.remove_stock("Gadgets", 5)
+    inventory.remove_stock("Gizmos", 1)  # doesn't exist yet
+ 
+    inventory.report()
