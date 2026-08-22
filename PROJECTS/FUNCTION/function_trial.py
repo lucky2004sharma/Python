@@ -1,38 +1,26 @@
-class Inventory:
-    def __init__(self, low_stock_threshold=5):
-        self.items = {}
-        self.low_stock_threshold = low_stock_threshold
+def caesar_encrypt(text, shift):
+    result = []
+    for char in text:
+        if char.isupper():
+            result.append(chr((ord(char) - ord('A') + shift) % 26 + ord('A')))
+        elif char.islower():
+            result.append(chr((ord(char) - ord('a') + shift) % 26 + ord('a')))
+        else:
+            result.append(char)
+    return "".join(result)
  
-    def add_stock(self, item_name, quantity):
-        self.items[item_name] = self.items.get(item_name, 0) + quantity
-        print(f"Added {quantity} of '{item_name}'. Total: {self.items[item_name]}")
  
-    def remove_stock(self, item_name, quantity):
-        if item_name not in self.items or self.items[item_name] < quantity:
-            print(f"Cannot remove {quantity} of '{item_name}': not enough stock")
-            return
-        self.items[item_name] -= quantity
-        print(f"Removed {quantity} of '{item_name}'. Remaining: {self.items[item_name]}")
-        self._check_low_stock(item_name)
- 
-    def _check_low_stock(self, item_name):
-        if self.items[item_name] <= self.low_stock_threshold:
-            print(f"  ⚠ Low stock alert: '{item_name}' has only {self.items[item_name]} left")
- 
-    def report(self):
-        print("\nInventory Report:")
-        for item, qty in self.items.items():
-            status = "LOW" if qty <= self.low_stock_threshold else "OK"
-            print(f"  {item}: {qty} ({status})")
+def caesar_decrypt(text, shift):
+    return caesar_encrypt(text, -shift)
  
  
 if __name__ == "__main__":
-    inventory = Inventory(low_stock_threshold=5)
+    message = "Hello, World! This is Python."
+    shift_amount = 3
  
-    inventory.add_stock("Widgets", 20)
-    inventory.add_stock("Gadgets", 8)
-    inventory.remove_stock("Widgets", 12)
-    inventory.remove_stock("Gadgets", 5)
-    inventory.remove_stock("Gizmos", 1)  # doesn't exist yet
+    encrypted = caesar_encrypt(message, shift_amount)
+    decrypted = caesar_decrypt(encrypted, shift_amount)
  
-    inventory.report()
+    print(f"Original:  {message}")
+    print(f"Encrypted: {encrypted}")
+    print(f"Decrypted: {decrypted}")
