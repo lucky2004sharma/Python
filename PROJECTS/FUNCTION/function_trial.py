@@ -1,9 +1,20 @@
-def is_palindrome(s):
-    cleaned = ''.join(c.lower() for c in s if c.isalnum())
-    return cleaned == cleaned[::-1]
+class BankAccount:
+    def __init__(self, owner, balance=0):
+        self.owner = owner
+        self.balance = balance
 
-text = input("Enter text: ")
-if is_palindrome(text):
-    print("It's a palindrome!")
-else:
-    print("Not a palindrome.")
+    def deposit(self, amount):
+        self.balance += amount
+        print(f"Deposited {amount}. New balance: {self.balance}")
+
+    def withdraw(self, amount):
+        if amount > self.balance:
+            print("Insufficient funds.")
+        else:
+            self.balance -= amount
+            print(f"Withdrew {amount}. New balance: {self.balance}")
+
+account = BankAccount("Alex", 100)
+account.deposit(50)
+account.withdraw(30)
+account.withdraw(1000)
