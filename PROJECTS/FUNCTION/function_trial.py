@@ -1,9 +1,10 @@
-country = "india"
-
-def values(num):
-    num = num + 10
+num = 10
+def values(name):
+    global num
+    num = num + 20
     print(num)
+    print(name)
     
-values(5)
-print(country)
+values("Alice")
+# print(country)
     
