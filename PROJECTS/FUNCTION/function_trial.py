@@ -1,10 +1,14 @@
-num = 10
-def values(name):
-    global num
-    num = num + 20
-    print(num)
-    print(name)
+def simple_interest(p, r, t):
     
-values("Alice")
-# print(country)
+    si = (p*r*t)/100
+    print("Simple Interest is:", si)
+    return si
     
+p = float(input("Enter the principal amount: "))
+r = float(input("Enter the rate of interest: "))   
+t = float(input("Enter the time in years: "))
+
+simple_interest(p, r, t)
+
+total = p + simple_interest(p, r, t)
+print("Total amount after interest is:", total)
