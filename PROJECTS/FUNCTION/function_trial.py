@@ -1,14 +1,19 @@
-def simple_interest(p, r, t):
-    
-    si = (p*r*t)/100
-    print("Simple Interest is:", si)
-    return si
-    
-p = float(input("Enter the principal amount: "))
-r = float(input("Enter the rate of interest: "))   
-t = float(input("Enter the time in years: "))
+class Student:
 
-simple_interest(p, r, t)
+    def __init__(self, name, age, course):
+        self.name = name
+        self.age = age
+        self.course = course
 
-total = p + simple_interest(p, r, t)
-print("Total amount after interest is:", total)
+    def show_details(self):
+        print("----- Student Details -----")
+        print("Name:", self.name)
+        print("Age:", self.age)
+        print("Course:", self.course)
+
+
+# Creating object
+student1 = Student("Rahul", 20, "Python")
+
+# Calling method
+student1.show_details()
