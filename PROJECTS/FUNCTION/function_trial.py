@@ -1,32 +1,24 @@
-class BankAccount:
+class Calculator:
 
-    def __init__(self, name, balance):
-        self.name = name
-        self.balance = balance
+    def add(self, a, b):
+        return a + b
 
-    def deposit(self, amount):
-        self.balance = self.balance + amount
-        print("₹", amount, "deposited successfully.")
+    def subtract(self, a, b):
+        return a - b
 
-    def withdraw(self, amount):
-        if amount <= self.balance:
-            self.balance = self.balance - amount
-            print("₹", amount, "withdrawn successfully.")
-        else:
-            print("Insufficient balance!")
+    def multiply(self, a, b):
+        return a * b
 
-    def show_balance(self):
-        print("Account Holder:", self.name)
-        print("Current Balance: ₹", self.balance)
+    def divide(self, a, b):
+        if b == 0:
+            return "Cannot divide by zero"
+        return a / b
 
 
-# Create account
-account1 = BankAccount("Mohit", 5000)
+# Create object
+calc = Calculator()
 
-account1.show_balance()
-
-account1.deposit(2000)
-
-account1.withdraw(1500)
-
-account1.show_balance()
+print("Addition:", calc.add(10, 5))
+print("Subtraction:", calc.subtract(10, 5))
+print("Multiplication:", calc.multiply(10, 5))
+print("Division:", calc.divide(10, 5))
