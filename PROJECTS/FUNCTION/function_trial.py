@@ -1,6 +1,10 @@
-def value():
-    print("Hello, World!")
+def outer():
+    print("hello ")
     
+    def inner():
+        print("world")
+        
+    inner()
 
-print(value())
-print(value)
+
+outer()
