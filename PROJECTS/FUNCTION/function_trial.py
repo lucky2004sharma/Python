@@ -1,15 +1,15 @@
-def outer():
-    print("hello ")
+def outer(name):
+    print(f"hello {name}")
     
     def inner():
-        print("world")
+        print(f"world {name}")
         
         def inner_inner():
-            print("welcome")
+            print(f"welcome {name}  ")
             
         inner_inner()
         
     inner()
 
 
-outer()
+outer("mohit")
