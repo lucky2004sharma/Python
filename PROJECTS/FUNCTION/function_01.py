@@ -1,51 +1,33 @@
-# def discount_price(price, discount):
-    
-#     print("The price is : ", price)
-#     print("The discount is : ", discount)
-#     discount_val = (price*discount)/100
-#     discount_prince = price - discount_val
-    
-#     return discount_prince
+expenses = []
 
-    
-# def gst_value(price):
-    
-#     gst = price * 18 /100
-#     gst_valu = price + gst
-#     print("The price after Gst is : ", gst_valu)
-       
-#     return gst_valu
-    
-    
-# price = 200
-# after_gst = gst_value(price)
-# after_discount = discount_price(price, 10)
+while True:
+    print("\n1. Add expense")
+    print("2. Show expenses")
+    print("3. Show total")
+    print("4. Exit")
 
+    choice = input("Choose an option: ")
 
-# print(price)
-# print(after_gst)
-# print(after_discount)
+    if choice == "1":
+        name = input("Expense name: ")
+        amount = float(input("Amount: ₹"))
+        expenses.append((name, amount))
+        print("Expense added.")
 
+    elif choice == "2":
+        if not expenses:
+            print("No expenses recorded.")
+        else:
+            for name, amount in expenses:
+                print(f"{name}: ₹{amount:.2f}")
 
+    elif choice == "3":
+        total = sum(amount for _, amount in expenses)
+        print(f"Total: ₹{total:.2f}")
 
-def discount_price(price1, discount):
-    
-    discount_va =(price1 * discount)/100
-    discount_pric = price1 - discount_va
-    return discount_pric
+    elif choice == "4":
+        print("Goodbye!")
+        break
 
-
-def gst_value(price1):
-    
-    gst = (price1 * 18)/100
-    gst_price = price1 + gst
-    return gst_price
-
-price1 = int(input("The overall price is : "))
-after_gst = gst_value(price1)
-after_discount = discount_price(price1, 10)
-
-print(price1)
-print(after_gst)
-print(after_discount)
-
+    else:
+        print("Invalid choice.")
