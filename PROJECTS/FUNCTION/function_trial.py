@@ -1,15 +1,9 @@
-def outer(name):
-    print(f"hello {name}")
-    
-    def inner():
-        print(f"world {name}")
-        
-        def inner_inner():
-            print(f"welcome {name}  ")
-            
-        inner_inner()
-        
-    inner()
+import random
+import string
 
+length = int(input("Enter password length: "))
 
-outer("mohit")
+characters = string.ascii_letters + string.digits + "!@#$%^&*"
+password = "".join(random.choice(characters) for _ in range(length))
+
+print("Generated password:", password)
