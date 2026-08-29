@@ -1,7 +1,8 @@
-def display(item, currency):
-    total = sum(item.values())
-    print("\nExpenses:", total)
+def display (item, currency):
     
-
-cart = {"Groceries": 150.0, "Transport": 50.0, "Entertainment": 100.0}
-display(cart, "₹")
+    total = sum(item.values())
+    print("Expenses are :", total, currency)
+    
+    
+values = {"Groceries": 150.0, "Transport": 50.0, "Entertainment": 100.0}
+display (values, "USD")
