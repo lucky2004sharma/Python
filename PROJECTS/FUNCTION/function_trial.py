@@ -17,7 +17,7 @@ def items(name, employee1=None):
         # employee1 = [name]
 
     employee1.append(name)
-    print("update value is :", employee1)
+    print("update value is :", employee1, name)
     
 items("John")
 print(items.__defaults__)
