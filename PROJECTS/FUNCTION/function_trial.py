@@ -1,10 +1,15 @@
-def items(name, employee1 = "yoyo"):
-    employee1 = employee1 + " " + name
-    print("update value is :", employee1, name)
-    
-items("John")
-print(items.__defaults__ )
-items("John", "lucifer")
-items("John")
-items("John")
+# def addition(num1, num2):
+#     return num1 + num2
 
+# # addition(10,20)
+# print(addition(10,20))
+
+def addition(*nums):
+    sum = 0
+    for n in nums:
+        sum = sum + n 
+    print(sum)
+    return sum
+
+addition(10,20,30)
+addition(10,20,30,40,50,60)
