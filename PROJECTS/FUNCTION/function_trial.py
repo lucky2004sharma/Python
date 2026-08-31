@@ -18,10 +18,16 @@
 
 # variable length keyword argumengs.
 
-def addition(**nums):
-    print(nums)
-    print(type(nums))
-    return sum(nums.values())
+# def addition(**nums):
+#     print(nums)
+#     print(type(nums))
+#     return sum(nums.values())
 
-addition(a=20, b=30, c=40)
-print(addition(a=10,b=20,c=30,d=40))
+# addition(a=20, b=30, c=40)
+# print(addition(a=10,b=20,c=30,d=40))
+
+def addition(*num ,**nums):
+    print(num)
+    print(nums)
+    
+addition(100,200,300, a=10, b=20, c=30)
