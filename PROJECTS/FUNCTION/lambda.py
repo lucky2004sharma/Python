@@ -1,27 +1,36 @@
-''''add = lambda a, b : a+b
-print(add(5, 3))  # Output: 8      normal lambda function 
+'''# WHY USE THE LAMBDA FUNCTION?
+
+# print(sorted([5,7,65,89,66,4,22,55]))
+
+data = ['tendulkar sachin', 'kohli virat', 'dravid rahul', 'dhoni ms', 'sehwag virender']
+
+sorted_data = sorted(data)
+print(sorted_data) # sorted in alphabetical order
 
 
-add = lambda a, b=5 : a+b
-print(add(5))  # Output: 10     lambda function with default argument
+sorted_data = sorted(data, key=len)
+print(sorted_data) # sorted in ascending order of length of string
+
+# split funciton
+print('sharma rohit'.split( )) # output = ['sharma', 'rohit']  # split the string into list of words
+print('sharma rohit'.split()[1])  # ['sharma'=0, 'rohit'=1]  # output = rohit'''
 
 
-add = lambda a, b=5, c=10 : a+b+c
-print(add(a =5))  # Output: 20     lambda function with default argument and keyword argument
+# def sort_by_last_name(name1):
+#     first_name = name1.split()[1]
+#     return first_name
+    
+# data = ['tendulkar sachin', 'kohli virat', 'dravid rahul', 'dhoni ms', 'sehwag virender']
+# print(sorted(data, key=sort_by_last_name)) # sorted in ascending order of last name
 
-# add = lambda a, b: a+b
-# print(add(a=5, 5))  # Output: 10     lambda function with keyword argument and positional argument
-# # SyntaxError: positional argument follows keyword argument
+# by lambda function
 
+# data = ['tendulkar sachin', 'kohli virat', 'dravid rahul', 'dhoni ms', 'sehwag virender']
+# print(sorted(data, key = lambda name : name.split()[1])) # sorted in ascending order of last name
 
-# num = lambda a,b : a+b, a-b
-# print(num(5, 3))  # Output: (8, 2)     lambda function with multiple return values
-# NameError: name 'a' is not defined'''
+def change_name(name1):
+    first_name = name1.split()[1]
+    return first_name
 
-
-#  multiple staments in lambda function
-
-num = lambda a,b : (a+b, a-b)
-add, sub = num(20,10)
-print(add)  # Output: 30
-print(sub)  # Output: 10
+data = ['tendulkar sachin', 'kohli virat', 'dravid rahul', 'dhoni ms', 'sehwag virender']
+print(sorted(data, key = change_name)) # sorted in ascending order of last name
