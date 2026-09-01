@@ -1,4 +1,4 @@
-add = lambda a, b : a+b
+''''add = lambda a, b : a+b
 print(add(5, 3))  # Output: 8      normal lambda function 
 
 
@@ -16,4 +16,12 @@ print(add(a =5))  # Output: 20     lambda function with default argument and key
 
 # num = lambda a,b : a+b, a-b
 # print(num(5, 3))  # Output: (8, 2)     lambda function with multiple return values
-# NameError: name 'a' is not defined
+# NameError: name 'a' is not defined'''
+
+
+#  multiple staments in lambda function
+
+num = lambda a,b : (a+b, a-b)
+add, sub = num(20,10)
+print(add)  # Output: 30
+print(sub)  # Output: 10
