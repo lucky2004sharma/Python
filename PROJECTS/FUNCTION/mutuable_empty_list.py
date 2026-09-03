@@ -1,32 +1,23 @@
-'''data = [5,10,15,20,25,30]
+'''# checking vowels and consonants in a string
 
-def even_num(data):
-    if data % 2 == 0:
+
+name = input("Enter your name: ")
+vowels = ['a', 'e', 'i', 'o', 'u']
+
+def vowels_count(name):
+    if name in  vowels:
         return True
     else:
         return False
     
-filtered_data = filter(even_num, data)
+filtered_name = filter(vowels_count, name)
+print(list(filtered_name))'''
 
-print(filtered_data) # 0<filter object at 0x0000020D9A1B7C10>
-print(type(filtered_data)) # <class 'filter'>
-# for element in filtered_data:
-#     print(element) # 10, 20, 30
+# by lambda function
 
-print(list(filtered_data)) # []  # filter object is exhausted after first iteration, so it returns empty list
-# print(list(filtered_data())) # []  # filter object is exhausted after first iteration, so it returns empty list  '''
+name = input("Enter your name : ")
+vowels = ['a', 'e', 'i', 'o', 'u']
 
-# data = [5,10,15,20,25,30]
-# def even_num(data):
-#     return data % 2 == 0  # it's return True or False based on the condition, so we don't need to use if-else statement not need to use return True or return False, it will automatically return True or False based on the condition
+filtered_name = filter( lambda name : name in vowels, name)
+print(list(filtered_name))
 
-# filtered_data = filter(even_num, data)
-# print(list(filtered_data)) # [10, 20, 30]  
-
-# by using lambda function
-
-
-data = [5,10,15,20,25,30]
-
-filtered_data = filter( lambda num : num % 2 ==0, data)
-print(list(filtered_data))
