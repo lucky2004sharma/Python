@@ -1,8 +1,7 @@
-def additon(a, b):
-    return a + b
+# add 5 numbers via loop
 
-a= int(input("Enter first number: "))
-b= int(input("Enter second number: "))
-
-sum = additon(a, b)
-print("The sum of", a, "and", b, "is:", sum)
+total = 0
+for i in range(5):
+    num = int(input("Enter a number: "))
+    total = total + num
+print("The sum of the five numbers is:", total)
