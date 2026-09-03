@@ -1,12 +1,17 @@
-def items(name, employee_data = None):
-    if employee_data is None:
-        employee_data = []
-    employee_data.append(name)
-    print("update value is :", employee_data, name)
-        
-items("John")
-print(items.__defaults__)
-employee_data = items("Jane")
-print(items.__defaults__)
-items("Doe", ["Alice", "Bob"])
-print(items.__defaults__)
+def get_name():
+    first_name = input("Enter your first name : ")
+    last_name = input("Enter your last name : ")
+    return first_name + " " + last_name
+
+get_name = get_name()
+print(get_name)
+
+
+def get_name(first_name, last_name):
+    return first_name + " " + last_name
+    
+    
+
+first_name = input("Enter your first name : ")
+last_name = input("Enter your last name : ")
+print(get_name(first_name, last_name))
