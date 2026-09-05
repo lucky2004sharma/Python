@@ -4,9 +4,17 @@ def divide(num1, num2):
         divi = num1/num2
         return divi
         
-    except ZeroDivisionError as obj:
-        print("Error : ", obj)
+    # except (ZeroDivisionError , NameError) as obj:
+    #     print("Error : ", obj)
         
+    except :
+        print("you mentioned something wrong")
+        
+    else:
+        print("there nothing wrong with code ! have fun ")
+        
+    finally:
+        print("We try our best")
 
 num1 = int(input("Enter first number: "))
 num2 = int(input("Enter second number: "))
