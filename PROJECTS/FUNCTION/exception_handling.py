@@ -2,12 +2,10 @@ def divide(num1, num2):
     
     try:
         divi = num1/num2
-        return div
+        return divi
         
-    except ZeroDivisionError:
-        print("You cannot divide any number with zero, please try different no.")
-    except NameError:
-        print("you have to check your code name.")
+    except ZeroDivisionError as obj:
+        print("Error : ", obj)
         
 
 num1 = int(input("Enter first number: "))
