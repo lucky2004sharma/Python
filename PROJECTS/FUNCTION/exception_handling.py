@@ -2,10 +2,6 @@ def divide(num1, num2):
     
     try:
         divi = num1/num2
-        return divi
-        
-    # except (ZeroDivisionError , NameError) as obj:
-    #     print("Error : ", obj)
         
     except :
         print("you mentioned something wrong")
@@ -15,6 +11,8 @@ def divide(num1, num2):
         
     finally:
         print("We try our best")
+    
+    return divi
 
 num1 = int(input("Enter first number: "))
 num2 = int(input("Enter second number: "))
