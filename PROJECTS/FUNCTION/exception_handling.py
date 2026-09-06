@@ -1,11 +1,10 @@
-import sys
-
-num1 = int(input("Enter the first number : "))
-num2 = int(input("Enter the second number : "))
-
 try :
-    div = num1/num
-    print("divison is ", div)
     
-except: 
-    print(sys.exc_info()[0])
+    age = int(input("Enter your age: "))
+    if age < 0:
+        raise ValueError
+    print("your age is ", age)
+    
+except ValueError :
+    print("Enter valid age ")
+    
