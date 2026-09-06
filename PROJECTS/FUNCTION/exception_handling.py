@@ -1,21 +1,11 @@
-def divide(num1, num2):
-    
-    try:
-        divi = num1/num2
-        
-    except :
-        print("you mentioned something wrong")
-        
-    else:
-        print("there nothing wrong with code ! have fun ")
-        
-    finally:
-        print("We try our best")
-    
-    return divi
+import sys
 
-num1 = int(input("Enter first number: "))
-num2 = int(input("Enter second number: "))
+num1 = int(input("Enter the first number : "))
+num2 = int(input("Enter the second number : "))
 
-divided_value = divide(num1, num2)
-print("The division of", num1, "and", num2, "is:", divided_value)
+try :
+    div = num1/num
+    print("divison is ", div)
+    
+except: 
+    print(sys.exc_info()[0])
