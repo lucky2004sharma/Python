@@ -1,10 +1,21 @@
-try :
-    age = int(input("Enter your age. "))
-    if age<0:
-       raise ValueError
-    print("your age is ", age)
+# exception example number should not be divisible by 5
+
+class FiveDivisionError(Exception):
     
-except ValueError:
-    print("enter valid age.")
+    pass
+
+n1 = int(input("Enter the 1st number "))
+n2 = int(input("Enter the 2nd number "))
+try:
+    if n2 == 5:
+        raise FiveDivisionError("Doesn't by 5")
+    div = n1/n2
+    print("Division is ", div)
     
-print("stop")
+except (FiveDivisionError, ZeroDivisionError) as var :
+    print("error :", var)
+    
+print("Stop")
+
+    
+    
