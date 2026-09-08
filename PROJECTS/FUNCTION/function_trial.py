@@ -5,6 +5,7 @@ def square():
         
     except Exception as value:
         print("Error :", value) 
+        square()
         
 square()
         
