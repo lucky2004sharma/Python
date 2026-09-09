@@ -1,9 +1,14 @@
-class student:
-    
-    def __init__(self):     # ya yahan isliya hain kyuki jab bhi hum new student S1, S2, KOI bhi new student create karenga
-        # toh woh wahan par new student create karwa dega.      
-        print("New student")
-        
-s1 = student()
-print(s1)    
-        
+class Student:
+
+    def study(self):
+        print("Student is studying")
+
+    def play(self):
+        print("Student is playing")
+
+
+student1 = Student()
+student2 = Student()
+
+student1.study()
+student2.play()
