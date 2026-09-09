@@ -1,22 +1,14 @@
-class UPI:
+class Student:
 
-    def pay(self):
-        print("Payment through UPI")
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
 
-
-class CreditCard:
-
-    def pay(self):
-        print("Payment through Credit Card")
-
-
-class Cash:
-
-    def pay(self):
-        print("Payment through Cash")
+    def show(self):
+        print("Name:", self.name)
+        print("Age:", self.age)
 
 
-payments = [UPI(), CreditCard(), Cash()]
+student1 = Student("Mohit", 20)
 
-for payment in payments:
-    payment.pay()
+student1.show()
