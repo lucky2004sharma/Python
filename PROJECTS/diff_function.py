@@ -1,14 +1,22 @@
-class BankAccount:
+class UPI:
 
-    def __init__(self, name, balance):
-        self.name = name
-        self.balance = balance
-
-    def show_balance(self):
-        print("Account Holder:", self.name)
-        print("Balance:", self.balance)
+    def pay(self):
+        print("Payment through UPI")
 
 
-account1 = BankAccount("Mohit", 5000)
+class CreditCard:
 
-account1.show_balance()
+    def pay(self):
+        print("Payment through Credit Card")
+
+
+class Cash:
+
+    def pay(self):
+        print("Payment through Cash")
+
+
+payments = [UPI(), CreditCard(), Cash()]
+
+for payment in payments:
+    payment.pay()
