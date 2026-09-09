@@ -1,14 +1,17 @@
-class Student:
+class BankAccount:
 
-    def study(self):
-        print("Student is studying")
+    def __init__(self, balance):
+        self.__balance = balance
 
-    def play(self):
-        print("Student is playing")
+    def deposit(self, amount):
+        self.__balance = self.__balance + amount
+
+    def show_balance(self):
+        print("Balance:", self.__balance)
 
 
-student1 = Student()
-student2 = Student()
+account = BankAccount(5000)
 
-student1.study()
-student2.play()
+account.deposit(2000)
+
+account.show_balance()
