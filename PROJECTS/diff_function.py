@@ -1,16 +1,16 @@
-expenses = []
+contacts = {}
 
 while True:
-    amount = input("Enter expense (or done): ")
+    name = input("\nEnter name (or done): ")
 
-    if amount == "done":
+    if name == "done":
         break
 
-    expenses.append(int(amount))
+    phone = input("Enter phone: ")
 
-print("Today's expenses:")
+    contacts[name] = phone
 
-for amount in expenses:
-    print("₹", amount)
+print("\nContacts:")
 
-print("Total:", sum(expenses))
+for name, phone in contacts.items():
+    print(name, ":", phone)
