@@ -1,19 +1,16 @@
-notes = []
+expenses = []
 
 while True:
-    print("\n1. Add Note")
-    print("2. Show Notes")
-    print("3. Exit")
+    amount = input("Enter expense (or done): ")
 
-    choice = input("Choose: ")
-
-    if choice == "1":
-        note = input("Write note: ")
-        notes.append(note)
-
-    elif choice == "2":
-        for note in notes:
-            print("-", note)
-
-    elif choice == "3":
+    if amount == "done":
         break
+
+    expenses.append(int(amount))
+
+print("Today's expenses:")
+
+for amount in expenses:
+    print("₹", amount)
+
+print("Total:", sum(expenses))
