@@ -1,10 +1,10 @@
-water = 0
+username = "admin"
+password = "1234"
 
-while water < 8:
-    glass = input("Did you drink a glass? (yes/no): ")
+user = input("Username: ")
+passcode = input("Password: ")
 
-    if glass == "yes":
-        water += 1
-        print("Glasses:", water)
-
-print("Daily water goal completed!")
+if user == username and passcode == password:
+    print("Login successful!")
+else:
+    print("Wrong username or password")
