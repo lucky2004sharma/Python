@@ -1,16 +1,6 @@
-contacts = {}
+first = input("First name: ")
+last = input("Last name: ")
 
-while True:
-    name = input("\nEnter name (or done): ")
+username = first.lower() + "_" + last.lower()
 
-    if name == "done":
-        break
-
-    phone = input("Enter phone: ")
-
-    contacts[name] = phone
-
-print("\nContacts:")
-
-for name, phone in contacts.items():
-    print(name, ":", phone)
+print("Your username:", username)
