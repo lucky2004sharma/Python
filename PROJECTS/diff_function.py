@@ -1,10 +1,14 @@
-username = "admin"
-password = "1234"
+movies = []
 
-user = input("Username: ")
-passcode = input("Password: ")
+while True:
+    movie = input("Add movie (or 'stop'): ")
 
-if user == username and passcode == password:
-    print("Login successful!")
-else:
-    print("Wrong username or password")
+    if movie == "stop":
+        break
+
+    movies.append(movie)
+
+print("\nYour Watchlist:")
+
+for movie in movies:
+    print(movie)
