@@ -1,6 +1,7 @@
-first = input("First name: ")
-last = input("Last name: ")
+text = input("Enter your text: ")
+word = input("What word do you want to find? ")
 
-username = first.lower() + "_" + last.lower()
-
-print("Your username:", username)
+if word.lower() in text.lower():
+    print("Word found!")
+else:
+    print("Word not found!")
