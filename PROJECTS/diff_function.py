@@ -1,7 +1,10 @@
-text = input("Enter your text: ")
-word = input("What word do you want to find? ")
+water = 0
 
-if word.lower() in text.lower():
-    print("Word found!")
-else:
-    print("Word not found!")
+while water < 8:
+    glass = input("Did you drink a glass? (yes/no): ")
+
+    if glass == "yes":
+        water += 1
+        print("Glasses:", water)
+
+print("Daily water goal completed!")
