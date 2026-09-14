@@ -1,7 +1,7 @@
-n = int(input("Enter a starting number: "))
-steps = 0
-while n != 1:
-    print(n, end=" -> ")
-    n = n // 2 if n % 2 == 0 else 3 * n + 1
-    steps += 1
-print(f"1 (reached in {steps} steps)")
+import random
+
+rolls = int(input("How many times to roll a die? "))
+results = [random.randint(1, 6) for _ in range(rolls)]
+print("Rolls:", results)
+print("Average:", sum(results) / rolls)
+print("Most common:", max(set(results), key=results.count))
