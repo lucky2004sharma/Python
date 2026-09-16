@@ -1,0 +1,5 @@
+name = input("Enter your name: ").upper()
+border = "*" * (len(name) + 6)
+print(border)
+print(f"*  {name}  *")
+print(border)
