@@ -1,4 +1,9 @@
-A = [[1, 2], [3, 4]]
-B = [[5, 6], [7, 8]]
-result = [[A[i][j] + B[i][j] for j in range(len(A[0]))] for i in range(len(A))]
-print("Result:", result)
+tasks = []
+while True:
+    action = input("Add(a) / Show(s) / Quit(q): ")
+    if action == "a":
+        tasks.append(input("Enter task: "))
+    elif action == "s":
+        print("Tasks:", tasks)
+    elif action == "q":
+        break
